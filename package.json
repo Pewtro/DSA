@@ -1,0 +1,44 @@
+{
+  "name": "data-structures-algorithms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Putro",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": ">=18.12.0 <20 || >=20.8.0"
+  },
+  "devDependencies": {
+    "@putstack/eslint-config-typescript": "2.2.0",
+    "@putstack/prettier-config": "1.4.0",
+    "@types/node": "20.11.11",
+    "eslint": "8.56.0",
+    "husky": "9.0.7",
+    "lint-staged": "15.2.0",
+    "npm-run-all2": "6.1.1",
+    "prettier": "3.2.4",
+    "typescript": "5.3.3",
+    "vitest": "1.2.2"
+  },
+  "scripts": {
+    "lint": "eslint --format stylish --max-warnings 0 --cache .",
+    "lint:fix": "pnpm lint --fix",
+    "prettier": "prettier --write .",
+    "prepare": "husky",
+    "stylecheck": "prettier --check .",
+    "test": "vitest run",
+    "watch": "vitest watch",
+    "test:ci": "npm-run-all -p -l lint typecheck stylecheck",
+    "typecheck": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,mjs,cjs,jsx,md,mdx,yml,yaml}": [
+      "prettier --write"
+    ],
+    "*.{ts,tsx,js,jsx,mjs,cjs}": [
+      "pnpm --silent lint:fix"
+    ]
+  }
+}
